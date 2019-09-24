@@ -1,3 +1,4 @@
+
 //Websocketに接続する
 var connection = new WebSocket("");
 
@@ -21,5 +22,3 @@ connection.onmessage = function(e){
 connection.onclose = function(){
 	connection.close();
 };
-
-
