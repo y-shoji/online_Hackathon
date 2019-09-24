@@ -29,3 +29,6 @@ $(window).on("load resize",function(){
 	checkHeight();
 })
 
+$("#LED").on("click",function(){
+	alert("Hello");
+})

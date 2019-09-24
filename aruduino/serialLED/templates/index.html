@@ -19,12 +19,13 @@
      <div class="col">
         <form action="{% url 'index' %}" method="post">
             <button type="submit" name="LED" class="btn btn-primary btn-block btn-lg" id="LED">LEDボタン</button>
+           
             {% csrf_token %}
         </form>
+
     </div>
  </div>
  </div>
-
 
 <!--Bootstrap呼出し -->
  
@@ -33,7 +34,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <!-- Javascript file -->
-  {% load static %}
+{% load static %}
   <script type="text/javascript" src="{% static 'Index/index_setWidth.js' %}"></script>
  {% endblock %}
 </body>
