@@ -1,7 +1,7 @@
 //Websocketに接続する
 var connection = new WebSocket("");
 
-//通信が接続された場合
+通信が接続された場合
 
 connection.onopen = function(e){
 	connection.send("sample data");
