@@ -1,24 +1,30 @@
 
 //Websocketに接続する
-var connection = new WebSocket("");
+const socket = new WebSocket("ws://localhost:8000/serialLED/");
 
-通信が接続された場合
+//通信が接続された場合
+socket.on("open",function(event){
+	socket.send("Hello Server");
+});
 
-connection.onopen = function(e){
-	connection.send("sample data");
-};
+// socket.on("message",function(event){
+// 	console.log("Hello");
+// })
 
-//エラーが発生した場合
-connection.onerror = function(error){
+socket.on("cancel",function(event){
+	socket.close();
+})
 
-};
 
-//メッセージを受け取った場合
-connection.onmessage = function(e){
+function sendText(){
+	let msg = {
+		type:"message",
+		text:document.getElementById("text").value,
+		id:clientID,
+		date:Date.now()
+	};
 
-};
+	socket.send(JSON.stringify(msg));
 
-//通信が切断され
-connection.onclose = function(){
-	connection.close();
-};
+	document.getElementById("text").value="";
+}
